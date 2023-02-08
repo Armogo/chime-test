@@ -2,13 +2,13 @@
   <div>
     <h3>Chime</h3>
     <div class="row">
-      <label>meetingResponseFromQuery</label>
+      <label>meetingResponse</label>
       <input v-model="meetingResponse"/>
     </div>
 
     <div class="row">
-      <label>attendeeResponseFromQuery</label>
-      <input v-model="attendeeResponseFromQuery"/>
+      <label>attendeeResponse</label>
+      <input v-model="attendeeResponse"/>
     </div>
 
     <button @click="handleButtonClicked">Join meeting</button>
@@ -31,16 +31,16 @@ export default {
   data() {
     return {
       chimeMeetingSession: null,
-      meetingResponseFromQuery: '',
-      attendeeResponseFromQuery: '',
+      meetingResponse: '',
+      attendeeResponse: '',
     }
   },
 
 
 
   created() {
-    this.meetingResponseFromQuery = new URLSearchParams(location.search).get('meetingResponse')
-    this.attendeeResponseFromQuery = new URLSearchParams(location.search).get('attendeeResponse')
+    this.meetingResponse = new URLSearchParams(location.search).get('meetingResponse')
+    this.attendeeResponse = new URLSearchParams(location.search).get('attendeeResponse')
   },
 
   mounted() {
@@ -61,8 +61,13 @@ export default {
       const deviceController = new DefaultDeviceController(logger);
 
       // You need responses from server-side Chime API. See below for details.
-      const meetingResponse = this.meetingResponseFromQuery; /* The response from the CreateMeeting API action */
-      const attendeeResponse = this.attendeeResponseFromQuery; /* The response from the CreateAttendee or BatchCreateAttendee API action */
+      
+      /* The response from the CreateMeeting API action */
+      const meetingResponse = this.meetingResponse; 
+
+      /* The response from the CreateAttendee or BatchCreateAttendee API action */
+      const attendeeResponse = this.attendeeResponse; 
+
       const configuration = new MeetingSessionConfiguration(
         meetingResponse,
         attendeeResponse
