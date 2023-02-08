@@ -3,7 +3,7 @@
     <h3>Chime</h3>
     <div class="row">
       <label>meetingResponseFromQuery</label>
-      <input v-mode="meetingResponseFromQuery"/>
+      <input v-model="meetingResponse"/>
     </div>
 
     <div class="row">
