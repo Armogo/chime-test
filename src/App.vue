@@ -21,6 +21,6 @@ body {
   text-align: center;
   color: #d0d0d0;
   background-color: #2c3e50;
-  margin-top: 60px;
+  margin-top: 2em;
 }
 </style>

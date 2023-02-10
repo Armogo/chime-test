@@ -2,13 +2,27 @@
   <div>
     <h3>Chime</h3>
     <div class="row">
+      <audio v-show="chimeMeetingSession" controls id="chime-player"></audio>
+    </div>
+
+    <div class="row">
       <label>meetingResponse</label>
-      <input :value="meetingResponseJSON" @input="pasteMeetingResponse" />
+    </div>
+
+    <div class="row">
+      <textarea :value="meetingResponseJSON" @input="pasteMeetingResponse" />
     </div>
 
     <div class="row">
       <label>attendeeResponse</label>
-      <input :value="attendeeResponseJSON" @input="pasteAttendeeResponse" />
+    </div>
+
+    <div class="row">
+      <textarea :value="attendeeResponseJSON" @input="pasteAttendeeResponse" />
+    </div>
+
+    <div class="row">
+      <button @click="handleButtonClicked" class="join-button">Join meeting</button>
     </div>
 
     <div class="row">
@@ -23,8 +37,7 @@
       {{ attendeeResponseFromURL }}
     </div>
 
-    <button @click="handleButtonClicked" class="join-button">Join meeting</button>
-    <audio v-show="chimeMeetingSession" controls id="chime-player"></audio>
+
   </div>
 </template>
 
@@ -203,8 +216,10 @@ export default {
 
 .join-button {
   display: block;
-  margin: 1em auto;
+  margin: 0 auto;
   padding: 0.5em;
   font-size: 1em;
+  background-color: blanchedalmond;
+  border-radius: 5px;
 }
 </style>
